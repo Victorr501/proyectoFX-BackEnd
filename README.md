@@ -1,7 +1,8 @@
-###ProyectoFX-BackEnd
+# ProyectoFX-BackEnd
 Este proyecto es el backend del proyectoFX.
+---
 
-##Capas
+## Capas
 - Controller --> Controladores REST
 - Service --> Logica de negocio
 - Repository --> Acceso a datos
