@@ -1,4 +1,4 @@
-package com.victor.proyectoFXBackEnd.Model;
+package com.victor.proyectoFXBackEnd.model;
 
 import jakarta.persistence.*;
 
