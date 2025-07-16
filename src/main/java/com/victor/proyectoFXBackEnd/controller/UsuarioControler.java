@@ -26,7 +26,7 @@ public class UsuarioControler {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/registrar")
+    @PostMapping("/registrar")
     public ResponseEntity<String> registrar(@RequestBody UsuarioDTO usuarioDTO){
         boolean existo = service.registrar(usuarioDTO);
         if (existo){
