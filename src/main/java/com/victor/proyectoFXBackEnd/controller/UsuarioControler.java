@@ -36,14 +36,14 @@ public class UsuarioControler {
         }
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Login login){
         Optional<UsuarioDTO> usuarioDTO = service.getUsuarioPorCorreo(login.getCorreo());
         if (usuarioDTO.isEmpty()){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuario no encotrado");
         }
 
-        boolean esValido = service.verificarContraseña(usuarioDTO.get(), login.getContraseña());
+        boolean esValido = service.verificarContraseña(usuarioDTO.get(), login.getContrasena());
 
         if (!esValido) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Contraseña incorrecta");

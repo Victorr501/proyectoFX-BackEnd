@@ -13,7 +13,7 @@ public class MapperUsuarios {
         UsuarioDTO usuarioDTO = new UsuarioDTO();
         usuarioDTO.setId(usuario.getId());
         usuarioDTO.setNombre(usuario.getNombre());
-        usuarioDTO.setCorreos(usuario.getCorreo());
+        usuarioDTO.setCorreo(usuario.getCorreo());
         usuarioDTO.setPasswordHaseada(usuario.getPasswordHaseada());
         usuarioDTO.setActivo(usuario.getActivo());
         return usuarioDTO;
@@ -23,7 +23,7 @@ public class MapperUsuarios {
         Usuario usuario = new Usuario();
         usuario.setId(usuarioDTO.getId());
         usuario.setNombre(usuarioDTO.getNombre());
-        usuario.setCorreo(usuarioDTO.getCorreos());
+        usuario.setCorreo(usuarioDTO.getCorreo());
         //Encripta la contrañea cuandos e crea
         usuario.setPasswordHaseada(encriptar.encodePassword(usuarioDTO.getPasswordHaseada()));
         usuario.setActivo(usuarioDTO.getActivo());
@@ -34,7 +34,7 @@ public class MapperUsuarios {
         Usuario usuario = new Usuario();
         usuario.setId(usuarioDTO.getId());
         usuario.setNombre(usuarioDTO.getNombre());
-        usuario.setCorreo(usuarioDTO.getCorreos());
+        usuario.setCorreo(usuarioDTO.getCorreo());
         usuario.setPasswordHaseada(usuarioDTO.getPasswordHaseada());
         usuario.setActivo(usuarioDTO.getActivo());
         return usuario;

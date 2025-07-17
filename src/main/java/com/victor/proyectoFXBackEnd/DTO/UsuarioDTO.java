@@ -4,7 +4,7 @@ package com.victor.proyectoFXBackEnd.DTO;
 public class UsuarioDTO {
     private Integer id;
     private String nombre;
-    private String correos;
+    private String correo;
     private String passwordHaseada;
     private Boolean activo;
 
@@ -27,12 +27,12 @@ public class UsuarioDTO {
         this.nombre = nombre;
     }
 
-    public String getCorreos() {
-        return correos;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setCorreos(String correos) {
-        this.correos = correos;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getPasswordHaseada() {

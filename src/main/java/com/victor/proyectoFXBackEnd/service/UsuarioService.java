@@ -29,7 +29,7 @@ public class UsuarioService {
 
 
     public Boolean registrar(UsuarioDTO usuarioDTO ){
-        if (repo.existsByCorreo(usuarioDTO.getCorreos())){
+        if (repo.existsByCorreo(usuarioDTO.getCorreo())){
             return false;
         }
         Usuario usuario = map.usuarioDTOToUsuarioRegistro(usuarioDTO);
