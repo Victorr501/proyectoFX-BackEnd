@@ -4,7 +4,9 @@ package com.victor.proyectoFXBackEnd.mapper;
 import com.victor.proyectoFXBackEnd.DTO.ProyectoDTO;
 import com.victor.proyectoFXBackEnd.model.Proyecto;
 import com.victor.proyectoFXBackEnd.model.Usuario;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MapperProyectos {
     public ProyectoDTO proyectoToProyectoDTO(Proyecto p){
         ProyectoDTO proyectoDTO = new ProyectoDTO();

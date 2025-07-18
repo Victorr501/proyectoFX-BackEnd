@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface ProyectoRepository extends JpaRepository<Proyecto, Integer> {
-    Boolean existByNombreAndUsuarioId(String nombre, Integer id);
+    boolean existsByNombreAndUsuario_Id(String nombre, Integer id);
 }
