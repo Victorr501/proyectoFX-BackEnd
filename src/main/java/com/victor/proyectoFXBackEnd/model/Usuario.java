@@ -2,6 +2,9 @@ package com.victor.proyectoFXBackEnd.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Usuario {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,6 +15,9 @@ public class Usuario {
     private String correo;
     private String passwordHaseada;
     private Boolean activo;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Proyecto> proyectos = new ArrayList<>();
 
 
     //Para hiberante
@@ -55,5 +61,13 @@ public class Usuario {
 
     public void setActivo(Boolean activo) {
         this.activo = activo;
+    }
+
+    public List<Proyecto> getProyectos() {
+        return proyectos;
+    }
+
+    public void setProyectos(List<Proyecto> proyectos) {
+        this.proyectos = proyectos;
     }
 }

@@ -1,4 +1,4 @@
-package com.victor.proyectoFXBackEnd.DTO;
+package com.victor.proyectoFXBackEnd.DTO.complementos;
 
 public class Login {
     private String correo;

@@ -1,8 +1,7 @@
 package com.victor.proyectoFXBackEnd.controller;
 
-import com.victor.proyectoFXBackEnd.DTO.Login;
+import com.victor.proyectoFXBackEnd.DTO.complementos.Login;
 import com.victor.proyectoFXBackEnd.DTO.UsuarioDTO;
-import com.victor.proyectoFXBackEnd.model.Usuario;
 import com.victor.proyectoFXBackEnd.service.UsuarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
