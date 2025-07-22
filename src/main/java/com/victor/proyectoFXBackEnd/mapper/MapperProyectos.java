@@ -6,16 +6,19 @@ import com.victor.proyectoFXBackEnd.model.Proyecto;
 import com.victor.proyectoFXBackEnd.model.Usuario;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class MapperProyectos {
     public ProyectoDTO proyectoToProyectoDTO(Proyecto p){
         ProyectoDTO proyectoDTO = new ProyectoDTO();
+        proyectoDTO.setId(p.getId());
         proyectoDTO.setNombre(p.getNombre());
         proyectoDTO.setDescripcion(p.getDescripcion());
         if (p.getUsuario() != null){
-            proyectoDTO.setId(p.getUsuario().getId());
+            proyectoDTO.setIdUsuario(p.getUsuario().getId());
         }
-        proyectoDTO.setFechaCreacion(p.getFechaCreacion());
+        proyectoDTO.setFechaCreacion(p.getFechaCreacion().toString());
         return proyectoDTO;
     }
 
@@ -29,7 +32,12 @@ public class MapperProyectos {
             proyecto.setUsuario(u);
         }
         proyecto.setId(p.getId());
-        proyecto.setFechaCreacion(p.getFechaCreacion());
+        String fechaString = p.getFechaCreacion();
+        if (fechaString != null && !fechaString.isEmpty()) {
+            proyecto.setFechaCreacion(LocalDate.parse(fechaString));
+        } else {
+            proyecto.setFechaCreacion(null); // o la fecha que quieras por defecto
+        }
         return proyecto;
     }
 }

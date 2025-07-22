@@ -6,6 +6,8 @@ import com.victor.proyectoFXBackEnd.model.Proyecto;
 import com.victor.proyectoFXBackEnd.repository.ProyectoRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProyectoService {
     private ProyectoRepository pR;
@@ -30,5 +32,17 @@ public class ProyectoService {
             return false;
         }
 
+    }
+
+    public List<ProyectoDTO> obtenerProyectosPorUsuario(Integer id_usuario){
+        List<Proyecto> proyectos = pR.findByUsuarioId(id_usuario);
+        return proyectos.stream()
+                .map(mP::proyectoToProyectoDTO)
+                .toList();
+    }
+
+    public ProyectoDTO obtenerProyectosPorId(Integer id_proyectos){
+        Proyecto proyecto =  pR.findById(id_proyectos).orElseThrow(() -> new RuntimeException("Proyecto no encontrado con id: " + id_proyectos));
+        return mP.proyectoToProyectoDTO(proyecto);
     }
 }

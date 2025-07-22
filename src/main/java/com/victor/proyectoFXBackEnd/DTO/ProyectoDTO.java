@@ -6,7 +6,7 @@ public class ProyectoDTO {
     private Integer id;
     private String nombre;
     private String descripcion;
-    private LocalDate fechaCreacion;
+    private String fechaCreacion;
     private Integer idUsuario;
 
     public ProyectoDTO() {
@@ -36,11 +36,11 @@ public class ProyectoDTO {
         this.descripcion = descripcion;
     }
 
-    public LocalDate getFechaCreacion() {
+    public String getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(LocalDate fechaCreacion) {
+    public void setFechaCreacion(String fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
