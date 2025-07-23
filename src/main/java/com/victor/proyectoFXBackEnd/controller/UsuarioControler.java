@@ -50,4 +50,22 @@ public class UsuarioControler {
 
         return ResponseEntity.ok("Login correcto");
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<UsuarioDTO> getUsuario(@PathVariable Integer id){
+        return service.getUsuario(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> eleminarUsuario(@PathVariable Integer id){
+        try {
+            service.eliminarUsuario(id);
+            return ResponseEntity.noContent().build(); //204 No contend
+        } catch (RuntimeException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Usuaqrio no encotrado con ID: " + id);
+        }
+    }
 }

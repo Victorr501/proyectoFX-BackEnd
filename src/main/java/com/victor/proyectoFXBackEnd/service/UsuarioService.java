@@ -45,4 +45,18 @@ public class UsuarioService {
             return encriptar.matches(contraseña, usuario.getPasswordHaseada());
         }
     }
+
+    public Optional<UsuarioDTO> getUsuario(Integer id){
+        return repo.findById(id)
+                .map(map::usuarioToUsuarioDTO);
+    }
+
+    public Boolean eliminarUsuario(Integer id){
+        if (repo.existsById(id)){
+            repo.deleteById(id);
+            return true;
+        } else {
+            throw new RuntimeException("Usuario con ID " + id + "no encotrado");
+        }
+    }
 }
