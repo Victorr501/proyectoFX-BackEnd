@@ -62,10 +62,15 @@ public class UsuarioControler {
     public ResponseEntity<String> eleminarUsuario(@PathVariable Integer id){
         try {
             service.eliminarUsuario(id);
-            return ResponseEntity.noContent().build(); //204 No contend
+            return ResponseEntity.ok("Usuario eliminado correctamente"); //204 No contend
         } catch (RuntimeException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("Usuaqrio no encotrado con ID: " + id);
         }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> actualizarUsuario(){
+
     }
 }

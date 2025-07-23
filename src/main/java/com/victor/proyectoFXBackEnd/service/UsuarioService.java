@@ -59,4 +59,19 @@ public class UsuarioService {
             throw new RuntimeException("Usuario con ID " + id + "no encotrado");
         }
     }
+
+    public Boolean actualizarUsuario(UsuarioDTO usuarioDTO){
+        Optional<Usuario> usuarioOpt = repo.findById(usuarioDTO.getId());
+        if (usuarioOpt.isEmpty()){
+            return false;
+        }
+
+        Usuario usuario = usuarioOpt.get();
+        usuario.setNombre(usuarioDTO.getNombre());
+        usuario.setCorreo(usuarioDTO.getCorreo());
+
+        repo.save(usuario);
+
+        return true;
+    }
 }
