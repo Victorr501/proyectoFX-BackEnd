@@ -69,8 +69,17 @@ public class UsuarioControler {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> actualizarUsuario(){
+    @PostMapping("/{id}")
+    public ResponseEntity<String> actualizarUsuario(@PathVariable Integer id, @RequestBody UsuarioDTO usuarioDTO){
+        if (!id.equals(usuarioDTO.getId())){
+            return ResponseEntity.badRequest().body("Id del path y del cuerpo no coinciden");
+        }
 
+        try {
+            String resultado = service.actualizarUsuario(usuarioDTO);
+            return ResponseEntity.ok(resultado);
+        } catch (RuntimeException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
 }

@@ -60,18 +60,26 @@ public class UsuarioService {
         }
     }
 
-    public Boolean actualizarUsuario(UsuarioDTO usuarioDTO){
+    public String actualizarUsuario(UsuarioDTO usuarioDTO){
         Optional<Usuario> usuarioOpt = repo.findById(usuarioDTO.getId());
         if (usuarioOpt.isEmpty()){
-            return false;
+            throw new RuntimeException("Usuario no encotrado con ID: " + usuarioDTO.getId());
         }
 
         Usuario usuario = usuarioOpt.get();
-        usuario.setNombre(usuarioDTO.getNombre());
-        usuario.setCorreo(usuarioDTO.getCorreo());
+        if (usuarioDTO.getNombre() != null && !usuarioDTO.getNombre().isEmpty()){
+            usuario.setNombre(usuarioDTO.getNombre());
+        }
+
+        if (usuarioDTO.getCorreo() != null && !usuarioDTO.getCorreo().isEmpty()){
+            usuario.setCorreo(usuarioDTO.getCorreo());
+        }
+
 
         repo.save(usuario);
 
-        return true;
+        return "Usuario actualizado correctamente";
     }
+
+    public boolean cambiarPassword()
 }
