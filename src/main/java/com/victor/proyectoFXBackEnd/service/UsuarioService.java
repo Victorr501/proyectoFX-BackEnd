@@ -1,6 +1,7 @@
 package com.victor.proyectoFXBackEnd.service;
 
 import com.victor.proyectoFXBackEnd.DTO.UsuarioDTO;
+import com.victor.proyectoFXBackEnd.DTO.complementos.CambiarContraseña;
 import com.victor.proyectoFXBackEnd.config.password.Encriptar;
 import com.victor.proyectoFXBackEnd.mapper.MapperUsuarios;
 import com.victor.proyectoFXBackEnd.model.Usuario;
@@ -81,5 +82,16 @@ public class UsuarioService {
         return "Usuario actualizado correctamente";
     }
 
-    public boolean cambiarPassword()
+    public boolean cambiarPassword(CambiarContraseña cC){
+        Usuario usuario = repo.findByCorreo(cC.getCorreo())
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        if (!encriptar.matches(cC.getActualPassword(), usuario.getPasswordHaseada())){
+            throw new RuntimeException("Contraseña actual incorrecta");
+        }
+
+        usuario.setPasswordHaseada(encriptar.encodePassword(cC.getNuevaPassword()));
+        repo.save(usuario);
+        return true;
+    }
 }

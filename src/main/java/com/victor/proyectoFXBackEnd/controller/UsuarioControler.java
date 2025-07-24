@@ -1,5 +1,6 @@
 package com.victor.proyectoFXBackEnd.controller;
 
+import com.victor.proyectoFXBackEnd.DTO.complementos.CambiarContraseña;
 import com.victor.proyectoFXBackEnd.DTO.complementos.Login;
 import com.victor.proyectoFXBackEnd.DTO.UsuarioDTO;
 import com.victor.proyectoFXBackEnd.service.UsuarioService;
@@ -69,6 +70,16 @@ public class UsuarioControler {
         }
     }
 
+    @PutMapping("/cambiar-password")
+    public ResponseEntity<String> cambiarContrasena(@RequestBody CambiarContraseña cC){
+        try {
+            service.cambiarPassword(cC);
+            return ResponseEntity.ok("Contraseña actualizada correctamente");
+        } catch (RuntimeException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
     @PostMapping("/{id}")
     public ResponseEntity<String> actualizarUsuario(@PathVariable Integer id, @RequestBody UsuarioDTO usuarioDTO){
         if (!id.equals(usuarioDTO.getId())){
@@ -82,4 +93,6 @@ public class UsuarioControler {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
+
+
 }
