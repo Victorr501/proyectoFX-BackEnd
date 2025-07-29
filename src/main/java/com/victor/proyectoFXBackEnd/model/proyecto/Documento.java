@@ -1,28 +1,23 @@
-package com.victor.proyectoFXBackEnd.model;
+package com.victor.proyectoFXBackEnd.model.proyecto;
 
+import com.victor.proyectoFXBackEnd.model.Proyecto;
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
-public class EventosCalendario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Documento {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String titulo;
 
     @Lob
-    private String descripcion;
-
-    private LocalDate fecha;
+    private String contenido;
 
     @ManyToOne
     @JoinColumn(name = "proyecto_id")
     private Proyecto proyecto;
 
-    public EventosCalendario(){
-
+    public Documento() {
     }
 
     public Integer getId() {
@@ -41,20 +36,12 @@ public class EventosCalendario {
         this.titulo = titulo;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getContenido() {
+        return contenido;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
     }
 
     public Proyecto getProyecto() {

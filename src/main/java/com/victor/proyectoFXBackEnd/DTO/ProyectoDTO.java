@@ -1,12 +1,5 @@
 package com.victor.proyectoFXBackEnd.DTO;
 
-import com.victor.proyectoFXBackEnd.model.EventosCalendario;
-import com.victor.proyectoFXBackEnd.model.TareaTitulo;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
 public class ProyectoDTO {
     private Integer id;
     private String nombre;
@@ -14,11 +7,6 @@ public class ProyectoDTO {
     private String fechaCreacion;
     private Integer idUsuario;
 
-    private List<DocumentoDTO> documentoDTOList = new ArrayList<>();
-
-    private List<EventosCalendarioDTO> eventosCalendarioDTOS = new ArrayList<>();
-
-    private List<TareaTituloDTO> tareaTituloDTOS = new ArrayList<>();
 
     public ProyectoDTO() {
     }
@@ -61,29 +49,5 @@ public class ProyectoDTO {
 
     public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
-    }
-
-    public List<DocumentoDTO> getDocumentoDTOList() {
-        return documentoDTOList;
-    }
-
-    public void setDocumentoDTOList(List<DocumentoDTO> documentoDTOList) {
-        this.documentoDTOList = documentoDTOList;
-    }
-
-    public List<EventosCalendarioDTO> getEventosCalendarioDTOS() {
-        return eventosCalendarioDTOS;
-    }
-
-    public void setEventosCalendarioDTOS(List<EventosCalendarioDTO> eventosCalendarioDTOS) {
-        this.eventosCalendarioDTOS = eventosCalendarioDTOS;
-    }
-
-    public List<TareaTituloDTO> getTareaTituloDTOS() {
-        return tareaTituloDTOS;
-    }
-
-    public void setTareaTituloDTOS(List<TareaTituloDTO> tareaTituloDTOS) {
-        this.tareaTituloDTOS = tareaTituloDTOS;
     }
 }

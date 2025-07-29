@@ -1,17 +1,19 @@
-package com.victor.proyectoFXBackEnd.DTO;
+package com.victor.proyectoFXBackEnd.DTO.proyecto;
 
-import java.util.List;
+import java.time.LocalDate;
 
-public class TareaTituloDTO {
+public class EventosCalendarioDTO {
     private Integer id;
 
     private String titulo;
 
     private String descripcion;
 
+    private LocalDate fecha;
+
     private Integer proyectoId;
 
-    public TareaTituloDTO() {
+    public EventosCalendarioDTO() {
     }
 
     public Integer getId() {
@@ -36,6 +38,14 @@ public class TareaTituloDTO {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
     public Integer getProyectoId() {

@@ -1,5 +1,7 @@
-package com.victor.proyectoFXBackEnd.model;
+package com.victor.proyectoFXBackEnd.model.proyecto;
 
+import com.victor.proyectoFXBackEnd.model.Proyecto;
+import com.victor.proyectoFXBackEnd.model.proyecto.tareaTitulo.Tarea;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

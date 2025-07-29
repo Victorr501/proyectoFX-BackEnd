@@ -2,6 +2,7 @@ package com.victor.proyectoFXBackEnd.mapper;
 
 
 import com.victor.proyectoFXBackEnd.DTO.ProyectoDTO;
+import com.victor.proyectoFXBackEnd.mapper.proyecto.MapperDocumentos;
 import com.victor.proyectoFXBackEnd.model.Proyecto;
 import com.victor.proyectoFXBackEnd.model.Usuario;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,8 @@ import java.time.LocalDate;
 
 @Component
 public class MapperProyectos {
+
+    private MapperDocumentos mD = new MapperDocumentos();
     public ProyectoDTO proyectoToProyectoDTO(Proyecto p){
         ProyectoDTO proyectoDTO = new ProyectoDTO();
         proyectoDTO.setId(p.getId());

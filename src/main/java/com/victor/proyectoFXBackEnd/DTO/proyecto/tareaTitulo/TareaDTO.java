@@ -1,4 +1,4 @@
-package com.victor.proyectoFXBackEnd.DTO;
+package com.victor.proyectoFXBackEnd.DTO.proyecto.tareaTitulo;
 
 import java.time.LocalDate;
 

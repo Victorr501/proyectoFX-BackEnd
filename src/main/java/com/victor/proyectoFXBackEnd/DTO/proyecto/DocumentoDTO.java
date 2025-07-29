@@ -1,10 +1,10 @@
-package com.victor.proyectoFXBackEnd.DTO;
+package com.victor.proyectoFXBackEnd.DTO.proyecto;
 
 public class DocumentoDTO {
     private Integer id;
 
-    private String nombre;
-    private String contendio;
+    private String titulo;
+    private String contenido;
 
     private Integer proyectoId;
 
@@ -19,20 +19,20 @@ public class DocumentoDTO {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public String getContendio() {
-        return contendio;
+    public String getContenido() {
+        return contenido;
     }
 
-    public void setContendio(String contendio) {
-        this.contendio = contendio;
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
     }
 
     public Integer getProyectoId() {

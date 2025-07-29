@@ -1,5 +1,8 @@
 package com.victor.proyectoFXBackEnd.model;
 
+import com.victor.proyectoFXBackEnd.model.proyecto.Documento;
+import com.victor.proyectoFXBackEnd.model.proyecto.EventosCalendario;
+import com.victor.proyectoFXBackEnd.model.proyecto.TareaTitulo;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

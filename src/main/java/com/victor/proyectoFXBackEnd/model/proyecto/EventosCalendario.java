@@ -1,19 +1,29 @@
-package com.victor.proyectoFXBackEnd.DTO;
+package com.victor.proyectoFXBackEnd.model.proyecto;
+
+import com.victor.proyectoFXBackEnd.model.Proyecto;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-public class EventosCalendarioDTO {
+@Entity
+public class EventosCalendario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String titulo;
 
+    @Lob
     private String descripcion;
 
     private LocalDate fecha;
 
-    private Integer proyectoId;
+    @ManyToOne
+    @JoinColumn(name = "proyecto_id")
+    private Proyecto proyecto;
 
-    public EventosCalendarioDTO() {
+    public EventosCalendario(){
+
     }
 
     public Integer getId() {
@@ -48,11 +58,11 @@ public class EventosCalendarioDTO {
         this.fecha = fecha;
     }
 
-    public Integer getProyectoId() {
-        return proyectoId;
+    public Proyecto getProyecto() {
+        return proyecto;
     }
 
-    public void setProyectoId(Integer proyectoId) {
-        this.proyectoId = proyectoId;
+    public void setProyecto(Proyecto proyecto) {
+        this.proyecto = proyecto;
     }
 }

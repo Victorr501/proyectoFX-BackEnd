@@ -1,5 +1,6 @@
-package com.victor.proyectoFXBackEnd.model;
+package com.victor.proyectoFXBackEnd.model.proyecto.tareaTitulo;
 
+import com.victor.proyectoFXBackEnd.model.proyecto.TareaTitulo;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
