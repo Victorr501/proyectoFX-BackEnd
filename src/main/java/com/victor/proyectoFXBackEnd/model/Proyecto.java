@@ -3,6 +3,8 @@ package com.victor.proyectoFXBackEnd.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Proyecto {
@@ -19,6 +21,16 @@ public class Proyecto {
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
+
+    //realacion con los apartados
+    @OneToMany(mappedBy = "proyecto",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Documento> documentos = new ArrayList<>();
+
+    @OneToMany(mappedBy = "proyecto",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EventosCalendario> eventosCalendario = new ArrayList<>();
+
+    @OneToMany(mappedBy = "proyecto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TareaTitulo> tareaTitulos = new ArrayList<>();
 
     @PrePersist
     protected void onCreate(){
@@ -66,5 +78,29 @@ public class Proyecto {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public List<Documento> getDocumentos() {
+        return documentos;
+    }
+
+    public void setDocumentos(List<Documento> documentos) {
+        this.documentos = documentos;
+    }
+
+    public List<EventosCalendario> getEventosCalendario() {
+        return eventosCalendario;
+    }
+
+    public void setEventosCalendario(List<EventosCalendario> eventosCalendario) {
+        this.eventosCalendario = eventosCalendario;
+    }
+
+    public List<TareaTitulo> getTareaTitulos() {
+        return tareaTitulos;
+    }
+
+    public void setTareaTitulos(List<TareaTitulo> tareaTitulos) {
+        this.tareaTitulos = tareaTitulos;
     }
 }
