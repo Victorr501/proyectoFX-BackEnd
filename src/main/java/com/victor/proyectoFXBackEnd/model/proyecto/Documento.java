@@ -13,7 +13,7 @@ public class Documento {
     @Lob
     private String contenido;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "proyecto_id")
     private Proyecto proyecto;
 

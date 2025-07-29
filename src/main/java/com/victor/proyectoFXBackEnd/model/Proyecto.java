@@ -26,8 +26,8 @@ public class Proyecto {
     private Usuario usuario;
 
     //realacion con los apartados
-    @OneToMany(mappedBy = "proyecto",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Documento> documentos = new ArrayList<>();
+    @OneToOne(mappedBy = "proyecto",cascade = CascadeType.ALL)
+    private Documento documentos;
 
     @OneToMany(mappedBy = "proyecto",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EventosCalendario> eventosCalendario = new ArrayList<>();
@@ -83,11 +83,11 @@ public class Proyecto {
         this.usuario = usuario;
     }
 
-    public List<Documento> getDocumentos() {
+    public Documento getDocumentos() {
         return documentos;
     }
 
-    public void setDocumentos(List<Documento> documentos) {
+    public void setDocumentos(Documento documentos) {
         this.documentos = documentos;
     }
 

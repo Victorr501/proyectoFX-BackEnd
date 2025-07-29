@@ -19,7 +19,7 @@ public class TareaTitulo {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "documento_id")
+    @JoinColumn(name = "proyecto_id")
     private Proyecto proyecto;
 
     @OneToMany(mappedBy = "tareaTitulo",cascade = CascadeType.ALL, orphanRemoval = true)
