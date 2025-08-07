@@ -17,12 +17,12 @@ public class DocumentoController {
         this.dS = dS;
     }
 
-    @GetMapping("/{proyectoId}")
+    @GetMapping("proyecto/{proyectoId}")
     public DocumentoDTO getDocuementoPorProyecto(@PathVariable Integer proyectoId){
         return dS.obtenerDocumentosPorProyectos(proyectoId);
     }
 
-    @PostMapping
+    @PostMapping("/crear")
     public ResponseEntity<String> crear(@PathVariable DocumentoCrear dc){
         if (dc.getDto() == null && dc.getId_proyecto() == null){
             return ResponseEntity.badRequest().body("Faltan datos obligatorios");
